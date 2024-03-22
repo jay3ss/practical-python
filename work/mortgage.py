@@ -33,6 +33,24 @@
 # How much will Dave pay if he pays an extra $1000/month for 4 years starting after the first
 # five years have already been paid?
 
+# Exercise 1.10: Making a table
+
+# Modify the program to print out a table showing the month, total paid so far, and the remaining
+# principal. The output should look something like this:
+
+# 1 2684.11 499399.22
+# 2 5368.22 498795.94
+# 3 8052.33 498190.15
+# 4 10736.44 497581.83
+# 5 13420.55 496970.98
+# ...
+# 308 874705.88 3478.83
+# 309 877389.99 809.21
+# 310 880074.1 -1871.53
+# Total paid 880074.1
+# Months 310
+
+
 principal = 500000.0
 rate = 0.05
 payment = 2684.11
@@ -54,4 +72,7 @@ while principal > 0:
     principal = principal * (1 + rate / 12) - payment - addl_payment
     total_paid = total_paid + payment + addl_payment
 
-print("Total paid", total_paid, "for", months, "months")
+    print(months, round(total_paid, 2), round(principal, 2))
+
+print("Total paid:", round(total_paid, 2))
+print("Months", months)
