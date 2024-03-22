@@ -94,7 +94,7 @@ while principal > 0:
         principal = principal * (1 + rate / 12) - this_months_payment
     total_paid = total_paid + this_months_payment
 
-    print(months, round(total_paid, 2), round(principal, 2))
+    print(f"{months:<4} {total_paid:8.2f} {principal:>8.2f}")
 
-print("Total paid:", round(total_paid, 2))
+print(f"Total paid: ${total_paid:.2f}")
 print("Months", months)
