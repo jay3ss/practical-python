@@ -50,6 +50,10 @@
 # Total paid 880074.1
 # Months 310
 
+# Exercise 1.11: Bonus
+
+# While you’re at it, fix the program to correct for the overpayment that occurs in the last month.
+
 
 principal = 500000.0
 rate = 0.05
@@ -62,6 +66,19 @@ extra_payment_start_month = 61
 extra_payment_end_month = 108
 extra_payment = 1000
 
+# while principal > 0:
+#     months += 1
+#     if extra_payment_start_month <= months <= extra_payment_end_month:
+#         addl_payment = extra_payment
+#     else:
+#         addl_payment = 0
+
+#     principal = principal * (1 + rate / 12) - payment - addl_payment
+#     total_paid = total_paid + payment + addl_payment
+
+#     print(months, round(total_paid, 2), round(principal, 2))
+
+
 while principal > 0:
     months += 1
     if extra_payment_start_month <= months <= extra_payment_end_month:
@@ -69,8 +86,13 @@ while principal > 0:
     else:
         addl_payment = 0
 
-    principal = principal * (1 + rate / 12) - payment - addl_payment
-    total_paid = total_paid + payment + addl_payment
+    this_months_payment = payment + addl_payment
+
+    if principal - this_months_payment < 0:
+        principal = 0
+    else:
+        principal = principal * (1 + rate / 12) - this_months_payment
+    total_paid = total_paid + this_months_payment
 
     print(months, round(total_paid, 2), round(principal, 2))
 
